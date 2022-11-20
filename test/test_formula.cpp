@@ -91,15 +91,15 @@ TEST(TFormula, calculation_without_functions)
 TEST(TFormula, calculation_with_functions)
 {
 	TFormula f;
-	f.SetFormula("log(2)+tan(33)");
-	EXPECT_EQ(std::log(2.0) + std::tan(33.0), f.Calculate());
+	f.SetFormula("log(pi)+tan(33)");
+	EXPECT_EQ(std::log(M_PI) + std::tan(33.0), f.Calculate());
 }
 
 TEST(TFormula, calculation_with_vars)
 {
 	TFormula f;
-	f.SetFormula("a+b*c");
-	std::string vars[] = { "a", "b", "c" };
+	f.SetFormula("a1+b_*cc");
+	std::string vars[] = { "a1", "b_", "cc" };
 	double vals[] = { 1.0, 2.2, 2.4 };
 	f.SetDefinedValues(vars, vals, 3);
 	EXPECT_EQ(1.0 + 2.2 * 2.4, f.Calculate());
